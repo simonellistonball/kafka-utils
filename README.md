@@ -19,4 +19,6 @@ usage: ConsumerGroupOffestTweaker -b <BOOTSTRAP_SERVERS> -g <GROUP> -o <OPTION> 
 	
 ```
 
-Note that this is likely to lead to data loss in processing, or reprocessing depending on the direction of movement.
+Note that this is likely to lead to data loss in processing, or re-processing depending on the direction of movement.
+
+You probably won't need this once <https://issues.apache.org/jira/browse/KAFKA-5181> has been completed. <https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling> and <https://issues.apache.org/jira/browse/KAFKA-4743> also cover similar use cases.  
