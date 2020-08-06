@@ -12,9 +12,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<global_kafka_version>0.10.0.1</global_kafka_version>
+		<global_kafka_version>2.4.1</global_kafka_version>
 		<global_shade_version>2.4.3</global_shade_version>
 		<global_classindex_version>3.3</global_classindex_version>
+		<scala.binary.version>2.11</scala.binary.version>
 	</properties>
 
 	<dependencies>
@@ -30,7 +31,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
-			<artifactId>kafka_2.10</artifactId>
+			<artifactId>kafka_${scala.binary.version}</artifactId>
 			<version>${global_kafka_version}</version>
 			<exclusions>
 				<exclusion>
@@ -50,6 +51,12 @@
 					<artifactId>slf4j-log4j12</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>de.vandermeer</groupId>
+			<artifactId>asciitable</artifactId>
+			<version>0.3.2</version>
 		</dependency>
 
 		<dependency>
@@ -109,6 +116,14 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>8</source>
+					<target>8</target>
+				</configuration>
 			</plugin>
 		</plugins>
 		<resources>
